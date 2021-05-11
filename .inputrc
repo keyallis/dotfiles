@@ -1,0 +1,9 @@
+$include /etc/inputrc
+
+set editing-mode vi
+
+set colored-stats On
+set completion-ignore-case On
+set completion-prefix-display-length 3
+set mark-symlinked-directories On
+set visible-stats On

@@ -1,0 +1,14 @@
+[user]
+  name = Oscar Ward
+  email = oscarward95@gmail.com
+[alias]
+  h = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  s = status
+  f = fetch
+  l = log
+[help]
+  autocorrect = 1
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
