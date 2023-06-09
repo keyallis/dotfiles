@@ -1,0 +1,69 @@
+#zsh
+bindkey -v
+plugins=(git)
+ZSH_THEME="robbyrussell"
+
+#git
+export GPG_TTY=$(tty)
+
+#language configs
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/bin
+alias python=/usr/local/bin/python3
+
+#general purpose
+alias c='clear'
+alias up='go_up'
+alias ls='ls --color'
+alias lsa='ls --color -a'
+alias lsl='ls --color -al'
+alias srch='grep -Irns --color'
+alias findd='find . | grep --color'
+
+#functions
+go_up()
+{
+    DEST_DIR=""
+    if [[ $1 == "" ]]; then
+        DEST_DIR=".."
+    elif [[ $1 -le 0 ]]; then
+        DEST_DIR="."
+    else
+        for i in $(eval echo {1..$1}); do
+            DEST_DIR=$DEST_DIR"../"
+        done
+    fi
+    cd $DEST_DIR
+}
+gitrebasemaster ()
+{
+    BRANCH=$(git branch --show-current)
+    git checkout master
+    git pull
+    git checkout $BRANCH
+    git rebase master
+}
+gitbranchtrim ()
+{
+    git branch | while read line; do
+        echo ${line}
+        if [[ "${line}" == "master" || "${line}" == *"*"* ]]; then
+            continue
+        else
+            git branch -D ${line}
+        fi
+    done
+}
+
+#editing shortcuts
+alias bavim='vim ~/.bash_aliases'
+alias brvim='vim ~/.bashrc'
+alias zrvim='vim ~/.zshrc'
+alias vrvim='vim ~/.vimrc'
+alias tcvim='vim ~/.tmux.conf'
+alias irvim='vim ~/.inputrc'
+alias brsource='source ~/.bashrc'
+alias zrsource='source ~/.zshrc'
+
+
