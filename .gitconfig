@@ -1,14 +1,21 @@
+[url "git@github.com:"]
+	insteadof = https://github.com/
 [user]
-  name = Oscar Ward
-  email = oscarward95@gmail.com
+	name = Oscar Ward
+	email = oscarward95@gmail.com
+	signingkey = F6F65909578181AB
 [alias]
-  h = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  s = status
-  f = fetch
-  l = log
+	h = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	s = status
+	f = fetch
+	l = log
 [help]
-  autocorrect = 1
+	autocorrect = 1
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+	added = yellow
+	changed = green
+	untracked = cyan
+[gpg]
+	program = gpg
+[push]
+	default = current
